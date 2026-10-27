@@ -1,59 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu site - Versão 0</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      font-family: system-ui, "Segoe UI", Roboto, sans-serif;
-      background: #6e6e73;
-      padding: 1rem;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, sans-serif;
     }
-    .cartao {
-      background: #fff;
-      border-radius: 20px;
-      padding: 2.5rem;
-      max-width: 520px;
-      width: 100%;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
-      text-align: center;
-      color: #1d1d1f;
+
+    body{
+        background:#0066cc;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
     }
-    .emoji { font-size: 4rem; }
-    h1 { margin: .5rem 0; color: #6e6e73; }
-    .versao {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      border-radius: 12px;
-      background: #f2f2f7;
-      text-align: left;
-      line-height: 1.8;
+
+    .login{
+        background:white;
+        padding:30px;
+        border-radius:15px;
+        width:350px;
+        text-align:center;
+        box-shadow:0 0 20px rgba(0,0,0,0.3);
     }
-    code { background: #e5e5ea; padding: 2px 6px; border-radius: 6px; }
-    footer { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #e5e5ea; color: #6e6e73; font-size: .85rem; }
-  </style>
+
+    h2{
+        margin-bottom:20px;
+        color:#0066cc;
+    }
+
+    input{
+        width:100%;
+        padding:12px;
+        margin:10px 0;
+        border:1px solid #ccc;
+        border-radius:8px;
+    }
+
+    button{
+        width:100%;
+        padding:12px;
+        background:#0066cc;
+        color:white;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:16px;
+    }
+
+    button:hover{
+        background:#004c99;
+    }
+
+    .erro{
+        color:red;
+        margin-top:10px;
+    }
+
+    #pagina51{
+        display:none;
+        width:100%;
+        height:100vh;
+        background:green;
+        color:white;
+        justify-content:center;
+        align-items:center;
+        font-size:80px;
+        font-weight:bold;
+        text-align:center;
+    }
+</style>
 </head>
+
 <body>
-  <main class="cartao">
-    <div class="emoji">🌱</div>
-    <h1>Versão 0</h1>
-    <p>Site inicial. Ainda ninguém enviou nada.</p>
 
-    <div class="versao">
-      🤖 <strong>Publicado pelo robô em:</strong> __DATA__<br>
-      🔖 <strong>Commit:</strong> <code>__COMMIT__</code><br>
-      👤 <strong>Enviado por:</strong> __AUTOR__
-    </div>
+<div class="login" id="loginBox">
+    <h2>Área de Login</h2>
 
-    <footer>
-      🎓 UNINOVE · Automação de Processos · DevOps<br>
-      Prof. Marcelino Dias da Silva
-    </footer>
-  </main>
+    <input type="text" id="usuario" placeholder="Usuário">
+    <input type="password" id="senha" placeholder="Senha">
+
+    <button onclick="entrar()">Entrar</button>
+
+    <div class="erro" id="erro"></div>
+</div>
+
+<div id="pagina51">
+    51 e pinga
+</div>
+
+<script>
+function entrar() {
+    const usuario = document.getElementById("usuario").value;
+    const senha = document.getElementById("senha").value;
+
+    if(usuario === "detru345" && senha === "12345"){
+        document.getElementById("loginBox").style.display = "none";
+        document.body.style.background = "green";
+        document.getElementById("pagina51").style.display = "flex";
+    } else {
+        document.getElementById("erro").innerText =
+            "Usuário ou senha incorretos!";
+    }
+}
+</script>
+
 </body>
 </html>
