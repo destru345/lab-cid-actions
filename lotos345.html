@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#000;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+}
+
+.login{
+    background:#fff;
+    color:#000;
+    padding:30px;
+    border-radius:15px;
+    width:350px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(255,255,255,0.3);
+}
+
+h2{
+    margin-bottom:20px;
+    color:#000;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #999;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#000;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#333;
+}
+
+.erro{
+    color:red;
+    margin-top:10px;
+}
+
+#pagina2{
+    display:none;
+    width:100%;
+    height:100vh;
+    background:#000;
+    color:#fff;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    font-size:40px;
+    font-weight:bold;
+    flex-direction:column;
+    gap:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login" id="loginBox">
+    <h2>Área de Login</h2>
+
+    <input type="text" id="usuario" placeholder="Usuário">
+    <input type="password" id="senha" placeholder="Senha">
+
+    <button onclick="entrar()">Entrar</button>
+
+    <div class="erro" id="erro"></div>
+</div>
+
+<div id="pagina2">
+    <div>Palmeiras não tem Mundial</div>
+    <div>51 é pinga</div>
+    <div>Moro na praia</div>
+</div>
+
+<script>
+function entrar() {
+    const usuario = document.getElementById("usuario").value;
+    const senha = document.getElementById("senha").value;
+
+    if(usuario === "Lotos345" && senha === "12345"){
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("pagina2").style.display = "flex";
+    } else {
+        document.getElementById("erro").innerText =
+            "Usuário ou senha incorretos!";
+    }
+}
+</script>
+
+</body>
+</html>
